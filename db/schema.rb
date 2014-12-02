@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 20141201222649) do
     t.string   "title"
     t.string   "location"
     t.datetime "datetime"
-    t.integer  "away_id",      default: 0
-    t.integer  "home_id",      default: 0
-    t.integer  "winner_id",    default: 0
+    t.integer  "away_id"
+    t.integer  "home_id"
+    t.integer  "winner_id"
     t.boolean  "championship"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20141201222649) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.integer  "correct"
+    t.integer  "correct",         default: 0
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"

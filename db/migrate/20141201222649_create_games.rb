@@ -4,9 +4,9 @@ class CreateGames < ActiveRecord::Migration
     	t.string     :title
     	t.string     :location
     	t.datetime   :datetime
-    	t.belongs_to :away,   :default => "TBD"
-    	t.belongs_to :home,   :default => "TBD"
-    	t.belongs_to :winner, :default => "TBD"
+    	t.belongs_to :away 
+    	t.belongs_to :home 
+    	t.belongs_to :winner
     	t.boolean    :championship
 
       t.timestamps
