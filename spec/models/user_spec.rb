@@ -19,11 +19,22 @@ RSpec.describe User, :type => :model do
 			end
 		end
 
-		context ''
+		context '3 correct picks' do
+			it 'returns 3' do
+				user_2 = build(:user, :correct => 3)
+				expect(user_2.correct).to eq(3)
+			end
+		end
 
 	end
 
 	describe '#picks' do
+		
+		it 'returns array of user picks' do 
+			picks = Array.new(5) { build(:pick) }
+			user.picks << picks
+			expect(user.picks).to eq(picks)
+		end
 
 	end
 

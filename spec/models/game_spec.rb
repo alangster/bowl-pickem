@@ -35,14 +35,14 @@ RSpec.describe Game, :type => :model do
 
 		context 'game is not the championship' do
 			it 'returns false' do
-				expect(game.championship?).to eq(false)
+				expect(game.championship?).to be_falsy
 			end
 		end
 
 		context 'game is championship' do
 			it 'returns true' do
 				champ = build(:game, :championship => true)
-				expect(champ.championship?).to eq(true)
+				expect(champ.championship?).to be_truthy
 			end
 		end
 
