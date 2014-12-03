@@ -3,7 +3,7 @@ FactoryGirl.define do
     admin false
     first_name Faker::Name.first_name
     last_name Faker::Name.last_name
-    email Faker::Internet.email
+    sequence(:email) {|n| "user#{n}@test.com"}
     password "whatever"
   end
 

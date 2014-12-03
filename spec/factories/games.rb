@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :game do
-  	title "Big Bowl"
+  	sequence(:title) { |n| "Bowl #{n}"}
   	location "Los Angeles, CA"
     championship false
     datetime DateTime.now
