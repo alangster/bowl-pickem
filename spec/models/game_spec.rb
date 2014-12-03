@@ -4,7 +4,7 @@ RSpec.describe Game, :type => :model do
 
 	let(:usc)  {build(:team)}
 	let(:nd)   {build(:team)}
-	let(:game) {build(:game, :away => nd, :home => usc)}
+	let(:game) {build(:game, :title => "Big Bowl", :away => nd, :home => usc)}
 	
 
 	describe '#title' do
