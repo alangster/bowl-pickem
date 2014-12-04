@@ -16,9 +16,10 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 		if @user.save
 			session[:user_id] = @user.id
-			flash[:message] ="Welcome!"
+			flash[:message] = "Welcome!"
 			redirect_to current_user
 		else
+			flash[:message] = @user.errors.full_messages.join(" ")
 			render "new"
 		end
 	end
