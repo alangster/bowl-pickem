@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@start = Game.pluck(:datetime).min
 	end
 
 	def new
