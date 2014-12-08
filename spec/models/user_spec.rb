@@ -38,4 +38,46 @@ RSpec.describe User, :type => :model do
 
 	end
 
+	describe '#done_picking' do
+
+		before(:all) do
+			team_1 = create(:team)
+			team_2 = create(:team)
+			team_3 = create(:team)
+			team_4 = create(:team)
+			team_5 = create(:team)
+			team_6= create(:team)
+			game_1 = create(:game, :home => team_1, :away => team_2)
+			game_2 = create(:game, :home => team_3, :away => team_4)
+			game_3 = create(:game, :home => team_5, :away => team_6)
+			@user = create(:user)
+			create(:pick, :user => @user, :game => game_1, :winner => team_1)
+			create(:pick, :user => @user, :game => game_2, :winner => team_4)
+			create(:pick, :user => @user, :game => game_3, :winner => team_5)
+		end
+
+		after(:all) do
+			Game.destroy_all
+			User.destroy_all
+			Pick.destroy_all
+			Team.destroy_all
+		end
+
+		let(:user) {@user}
+
+		context 'user has made a pick for every game' do
+			it 'returns true' do
+				expect(user).to be_done_picking
+			end
+		end
+
+		context 'user has not made a pick for every game' do
+			it 'returns false' do
+				create(:game, :home => create(:team), :away => create(:team))
+				expect(user).not_to be_done_picking
+			end
+		end
+
+	end
+
 end
